@@ -1,0 +1,158 @@
+* {
+  padding: 0;
+  margin: 0;
+  --primary: hsl(120, 100%, 40%);
+  --primary-active: hsl(120, 100%, 30%);
+  --destructive: hsl(0, 100%, 40%);
+  --destructive-active: hsl(0, 100%, 30%);
+  --secondary: hsl(0, 0%, 50%);
+  --secondary-active: hsl(0, 0%, 40%);
+}
+
+.container {
+  height: calc(100vh - 2em);
+  display: grid;
+  place-items: center;
+}
+
+.content {
+  width: calc(100% - 2em);
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.content > * {
+  width: 400px;
+  height: 600px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  width: 380px;
+  background: white;
+  padding: 10px;
+  position: fixed;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+form > input {
+  padding: 2px;
+  font-size: 1rem;
+  width: 75%;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary, .btn-destructive, .btn-secondary {
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+}
+
+.btn-primary:active {
+  background-color: var(--primary-active);
+}
+
+.btn-destructive {
+  background-color: var(--destructive);
+}
+
+.btn-destructive:active {
+  background-color: var(--destructive-active);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+}
+
+.btn-secondary:active {
+  background-color: var(--secondary-active);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 78px;
+}
+
+.block-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  padding-bottom: 10px;
+}
+
+.card, .alert-card {
+  padding: 0px 10px;
+  border-radius: 5px;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, .5);
+}
+
+.alert-card {
+  padding: 20px;
+  width: 30%;
+  top: 5px;
+  left: -40%;
+  transition: .5s;
+  display: flex;
+  justify-content: space-between;
+}
+
+.alert-card > span {
+  cursor: pointer;
+}
+
+.alert-card.active {
+  left: 5px;
+}
+
+.p-fixed {
+  position: fixed;
+  background-color: white;
+}
+
+.card-header{
+  display: inline-block;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.completed, .incompleted {
+  border-left: 5px solid var(--primary-active);
+  padding-left: 5px;
+  border-radius: 5px;
+}
+
+.incompleted {
+  border-left: 5px solid var(--destructive);
+}
