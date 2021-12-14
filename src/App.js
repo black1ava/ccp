@@ -72,24 +72,32 @@ function App(){
       mAgent = agent;
     }); 
 
-    window.addEventListener("beforeunload", function(event) {
-      event.returnValue = "";
-      if (mAgent != null) {
-          let states = mAgent.getAgentStates();
-          // "states" is an array of changeable states. You can filter the desired state to change by name.
-          let offlineState = states.filter(state => state.name === "Offline")[0];
-                        
-          // Change agent state
-          mAgent.setState(offlineState, {
-          success: function() {
-              console.log("SetState succeeded");
-          },
-          failure: function() {
-          console.log("SetState failed");
-          }
-        });
+    function logAgentOut(){
+      const now = new Date();
+      const hour = now.getHours();
+
+      if(hour >= 20){
+        if (mAgent != null) {
+            let states = mAgent.getAgentStates();
+            // "states" is an array of changeable states. You can filter the desired state to change by name.
+            let offlineState = states.filter(state => state.name === "Offline")[0];
+                          
+            // Change agent state
+            mAgent.setState(offlineState, {
+            success: function() {
+                console.log("SetState succeeded");
+            },
+            failure: function() {
+            console.log("SetState failed");
+            }
+          });
+        }
       }
-    });  
+
+      window.requestAnimationFrame(logAgentOut);
+    }
+
+    window.requestAnimationFrame(logAgentOut);
   }, []);
 
   function handleAlertShowToggle(){
