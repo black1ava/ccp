@@ -76,7 +76,7 @@ function App(){
       const now = new Date();
       const hour = now.getHours();
 
-      if(hour >= 20){
+      if(hour >= 21){
         if (mAgent != null) {
             let states = mAgent.getAgentStates();
             // "states" is an array of changeable states. You can filter the desired state to change by name.
